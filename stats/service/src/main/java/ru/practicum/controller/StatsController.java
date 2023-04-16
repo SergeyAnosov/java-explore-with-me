@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.dto.EndpointHit;
 import ru.practicum.dto.ViewStats;
-import ru.practicum.service.StatsService;
 import ru.practicum.service.StatsServiceImpl;
 
 import java.time.LocalDateTime;
