@@ -10,4 +10,9 @@ public class ViewStats {
     private String app;
     private String uri;
     private Long hits;
+
+    public ViewStats(String app, Long hits) {
+        this.app = app;
+        this.hits = hits;
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.practicum.dto.EndpointHit;
 import ru.practicum.dto.ViewStats;
 import ru.practicum.service.StatsService;
+import ru.practicum.service.StatsServiceImpl;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,7 +17,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class StatsController {
-    private final StatsService statsService;
+    private final StatsServiceImpl statsService;
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
@@ -30,7 +31,7 @@ public class StatsController {
     @GetMapping ("/stats")
     public List<ViewStats> getStats(@RequestParam(name = "start") String start,
                                           @RequestParam(name = "end") String end,
-                                          @RequestParam (required = false) List<String> uris,
+                                          @RequestParam(required = false) List<String> uris,
                                           @RequestParam(defaultValue = "false") Boolean unique) {
         log.info("Запрос на получение статистики");
         LocalDateTime startTime = LocalDateTime.parse(start, formatter);

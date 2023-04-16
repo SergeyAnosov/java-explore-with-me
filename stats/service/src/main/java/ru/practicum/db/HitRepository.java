@@ -11,13 +11,13 @@ import java.util.List;
 
 @Repository
 public interface HitRepository extends JpaRepository<Hit, Long> {
-    @Query("SELECT NEW ru.practicum.dto.ViewStats(h.app, h.uri, COUNT(DISTINCT h.ip)) " +
+    @Query("SELECT NEW ru.practicum.dto.ViewStats(h.app, COUNT(DISTINCT h.ip)) " +
             "FROM Hit h WHERE h.timestamp BETWEEN :start AND :end " +
             "GROUP BY h.ip, h.app " +
             "ORDER BY COUNT(DISTINCT h.ip) DESC")
     List<ViewStats> findAllByIpUniqueNoUris(LocalDateTime start, LocalDateTime end);
 
-    @Query("SELECT NEW ru.practicum.dto.ViewStats(h.app, h.uri, COUNT(h.ip)) " +
+    @Query("SELECT NEW ru.practicum.dto.ViewStats(h.app, COUNT(h.ip)) " +
             "FROM Hit h WHERE h.timestamp BETWEEN :start AND :end " +
             "GROUP BY h.ip, h.app " +
             "ORDER BY COUNT(h.ip) DESC")

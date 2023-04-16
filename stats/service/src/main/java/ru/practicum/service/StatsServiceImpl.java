@@ -1,6 +1,7 @@
 package ru.practicum.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.practicum.dto.EndpointHit;
 import ru.practicum.dto.ViewStats;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class StatsServiceImpl implements StatsService {
     private final HitRepository hitRepository;
 
@@ -26,6 +28,8 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public List<ViewStats> getViewStats(LocalDateTime start, LocalDateTime end, List<String> uris, Boolean unique) {
+        log.info("Start method getViewStats in StatsServiceImpl with start={}, end={}, " +
+                "uris={}, unique={}", start, end, uris, unique);
 
         List<ViewStats> stats;
         if (uris == null || uris.isEmpty()) {
