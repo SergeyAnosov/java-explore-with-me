@@ -31,7 +31,7 @@ public class StatsController {
     public List<ViewStats> getStats(@RequestParam(name = "start") String start,
                                           @RequestParam(name = "end") String end,
                                           @RequestParam(required = false) List<String> uris,
-                                          @RequestParam(defaultValue = "false") Boolean unique) {
+                                          @RequestParam(required = false, defaultValue = "false") Boolean unique) {
         log.info("Запрос на получение статистики");
         LocalDateTime startTime = LocalDateTime.parse(start, formatter);
         LocalDateTime endTime = LocalDateTime.parse(end, formatter);

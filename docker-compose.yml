@@ -13,6 +13,7 @@ services:
       - DB_PORT=5432
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=user
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/stats-server
 
   stats-db:
     image: postgres:14-alpine
@@ -24,7 +25,6 @@ services:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=user
 
-
   ewm-service:
     build: ewm-service
     container_name: ewm-main-service
@@ -33,6 +33,8 @@ services:
     depends_on:
       - stats-server
       - ewm-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ewm-db:5432/ewm-db
 
   ewm-db:
     image: postgres:14-alpine
