@@ -46,11 +46,12 @@
         </dependency>
         <dependency>
             <groupId>ru.practicum</groupId>
-            <artifactId>dto</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <artifactId>stats-dto</artifactId>
         </dependency>
     </dependencies>
+
+
+
     <build>
         <plugins>
             <plugin>
@@ -59,7 +60,7 @@
                 <configuration>
                     <excludes>
                         <exclude>
-                            <groupId>org.project-lombok</groupId>
+                            <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
