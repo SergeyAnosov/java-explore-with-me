@@ -1,10 +1,7 @@
 package ru.practicum.model;
 
 import lombok.experimental.UtilityClass;
-import ru.practicum.dto.EndpointHit;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import ru.practicum.EndpointHit;
 
 @UtilityClass
 public class HitMapper {
@@ -15,7 +12,7 @@ public class HitMapper {
                 endpointHit.getApp(),
                 endpointHit.getUri(),
                 endpointHit.getIp(),
-                LocalDateTime.parse(endpointHit.getTimestamp(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                endpointHit.getTimestamp()
 
         );
     }
@@ -26,7 +23,7 @@ public class HitMapper {
                 hit.getApp(),
                 hit.getUri(),
                 hit.getIp(),
-                hit.getTimestamp().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                hit.getTimestamp()
         );
     }
 }
