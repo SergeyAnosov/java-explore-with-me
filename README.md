@@ -8,7 +8,7 @@
 **Стек:**
 - Java 11
 - Spring Boot
-- Hibernate ORM
+- Hibernate
 - PostgreSQL
 - Maven
 - Postman
